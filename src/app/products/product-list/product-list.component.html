@@ -1,4 +1,4 @@
-  <div class="row">
+  <div class="row" *ngIf="prodListCategory.length">
     <div class="col-3">
       <side-menu [category]="category"></side-menu>
     </div>
@@ -41,4 +41,7 @@
     </div>
   </div>
 
+  </div>
+  <div *ngIf="!prodListCategory.length">
+    <app-loading-spinner></app-loading-spinner>
   </div>
