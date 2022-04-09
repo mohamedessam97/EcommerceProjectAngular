@@ -1,0 +1,80 @@
+<div class="top-bar">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <i class="fa fa-envelope"></i>
+        support@email.com
+      </div>
+      <div class="col-sm-6">
+        <i class="fa fa-phone-alt"></i>
+        +012-345-6789
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nav">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <a href="#" class="navbar-brand">MENU</a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+        <div class="navbar-nav mr-auto">
+          <a aria-current="page" routerLink="/" routerLinkActive="active" class="nav-item nav-link">Home</a>
+          <a routerLink="/products" routerLinkActive="active" class="nav-item nav-link">Products</a>
+
+        </div>
+        <div class="navbar-nav ml-auto">
+          <li class="nav-item" *ngIf="!user">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+          </li>
+          <div class="nav-item dropdown" *ngIf="user">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              {{userName}}
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/my/orders">My Orders</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/orders" *ngIf="isAdmin!=='false'">Manage Orders</a></li>
+              <li><a class="dropdown-item" routerLink="/admin/products" *ngIf="isAdmin!=='false'">Manage Products</a>
+              </li>
+              <li><a class="dropdown-item" href="" (click)="logout()">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div class="bottom-bar">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-md-3">
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/img/logo.png" alt="Logo">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6">
+      </div>
+      <div class="col-md-3">
+        <div class="user">
+          <a routerLink="/wishlist" routerLinkActive="active" class="btn wishlist">
+            <i class="fa fa-heart"></i>
+            <span>(0)</span>
+          </a>
+          <a routerLink="/shopcart" class="btn cart">
+            <i class="fa fa-shopping-cart"></i>
+            <span>({{shoppingCartItemCount}})</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+<div class="breadcrumb-wrap">
+<div class="container-fluid">
+<ul class="breadcrumb">
+    <li class="breadcrumb-item">
+    <a routerLink="/" routeLinkActive="active">Home</a>
+    </li>
+    <li class="breadcrumb-item">
+    <a routerLink="/products" routeLinkActive="active">Products</a>
+    </li>
+    <li class="breadcrumb-item active">Product Detail</li>
+</ul>
+</div>
+</div>
+
+<!-- end bread crump -->
+
+<div class="product-detail">
+<div class="container-fluid">
+<div class="row">
+    <div class="col-lg-8">
+    <div class="product-detail-top">
+        <div class="row align-items-center">
+        <div class="col-md-5">
+            <div class="product-slider-single normal-slider">
+            <img [src]="selectedPrd.picture" alt="Product Image" />
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="product-content">
+            <div class="title">
+                <h2>{{ selectedPrd.name }}</h2>
+            </div>
+            <div class="ratting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </div>
+            <div class="price">
+                <h4>Price:</h4>
+                <p>{{ selectedPrd.price | currency }}</p>
+            </div>
+            <div class="p-size">
+                <h4>Size:</h4>
+                <div class="btn-group btn-group-sm">
+                <button type="button" class="btn">S</button>
+                <button type="button" class="btn">M</button>
+                <button type="button" class="btn">L</button>
+                <button type="button" class="btn">XL</button>
+                </div>
+            </div>
+            <div class="p-color">
+                <h4>Color:</h4>
+                <div class="btn-group btn-group-sm">
+                <button type="button" class="btn">White</button>
+                <button type="button" class="btn">Black</button>
+                <button type="button" class="btn">Blue</button>
+                </div>
+            </div>
+            <div class="action" *ngIf="selectedPrd.quantity != 0; else out">
+                <a class="btn" (click)="addToCart(selectedPrd)"
+                ><i class="fa fa-shopping-cart"></i>Add to Cart</a
+                >
+            </div>
+            <ng-template #out>
+                <p>Out Of Stock</p>
+            </ng-template>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="row product-detail-bottom">
+        <div class="col-lg-12">
+        <ul class="nav nav-pills nav-justified">
+            <li class="nav-item">
+            <a
+                class="nav-link active"
+                data-toggle="pill"
+                href="#description"
+                >Description</a
+            >
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="description" class="container tab-pane active">
+            <p>
+                {{ selectedPrd.description }}
+            </p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- old code -->
+
+<!-- <div class="row row-cols-1 row-cols-md-3 g-4"
+>
+    <div class="col"
+    >
+    <div class="card">
+    <img [src]="selectedPrd.img" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{selectedPrd.name}}</h5>
+        <p class="card-text">{{selectedPrd.price | currency}}</p>
+        <div *ngIf="selectedPrd.quantity!=0 else out">
+            <button class="btn btn-primary" (click)="addToCart(selectedPrd)">Add to Cart</button>
+            <button class="btn btn-primary">Buy Now</button>
+        </div>
+        <ng-template #out>
+            <p>Out Of Stock</p>
+        </ng-template>
+    </div>
+    </div> 
+    </div>
+</div> -->

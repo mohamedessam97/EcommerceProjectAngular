@@ -1,0 +1,220 @@
+<!-- Breadcrumb Start -->
+<div class="breadcrumb-wrap">
+  <div class="container-fluid">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Products</a></li>
+      <li class="breadcrumb-item active">Checkout</li>
+    </ul>
+  </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Checkout Start -->
+<div class="checkout">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="checkout-inner">
+          <div class="billing-address">
+            <h2>Billing Address</h2>
+            <div class="row">
+              <div class="col-md-6">
+                <label>First Name</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="First Name"
+                  value="{{ userData }}"
+                />
+              </div>
+              <div class="col-md-6">
+                <label>Last Name"</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Last Name"
+                />
+              </div>
+              <div class="col-md-6">
+                <label>E-mail</label>
+                <input class="form-control" type="text" placeholder="E-mail" />
+              </div>
+              <div class="col-md-6">
+                <label>Mobile No</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Mobile No"
+                />
+              </div>
+              <div class="col-md-12">
+                <label>Address</label>
+                <input class="form-control" type="text" placeholder="Address" />
+              </div>
+              <div class="col-md-6">
+                <label>Country</label>
+                <select class="custom-select">
+                  <option selected>Egypt</option>
+                  <option>Saudi Arabia</option>
+                  <option>United Emarities</option>
+                  <option>lebanon</option>
+                  <option>Algeria</option>
+                  <option>Marcoca</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label>City</label>
+                <input class="form-control" type="text" placeholder="City" />
+              </div>
+              <div class="col-md-6">
+                <label>State</label>
+                <input class="form-control" type="text" placeholder="State" />
+              </div>
+              <div class="col-md-6">
+                <label>ZIP Code</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="ZIP Code"
+                />
+              </div>
+              <div class="col-md-12">
+                <div class="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="newaccount"
+                  />
+                  <label class="custom-control-label" for="newaccount"
+                    >Create an account</label
+                  >
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="shipto"
+                  />
+                  <label class="custom-control-label" for="shipto"
+                    >Ship to different address</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="checkout-inner">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="card-title">Order Summary</h1>
+              <p class="card-text">
+                You have {{ shoppingCartItemCount }} items in your shopping
+                cart.
+              </p>
+              <ul class="list-group">
+                <li class="list-group-item" *ngFor="let item of cart">
+                  {{ item.quantity }} x {{ item.product.name }}
+                  <div class="float-right">
+                    {{
+                      item.quantity * item.product.price | currency: "USD":true
+                    }}
+                  </div>
+                </li>
+                <li class="list-group-item font-weight-bold">
+                  Total
+                  <div class="float-right">
+                    {{ totalPrice | currency: "USD":true }}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="checkout-payment">
+            <div class="payment-methods">
+              <h1>Payment Methods</h1>
+              <div class="payment-method">
+                <div class="custom-control custom-radio">
+                  <input
+                    type="radio"
+                    class="custom-control-input"
+                    id="payment-1"
+                    name="payment"
+                  />
+                  <label class="custom-control-label" for="payment-1"
+                    >Paypal</label
+                  >
+                </div>
+                <div class="payment-content" id="payment-1-show"></div>
+              </div>
+              <div class="payment-method">
+                <div class="custom-control custom-radio">
+                  <input
+                    type="radio"
+                    class="custom-control-input"
+                    id="payment-2"
+                    name="payment"
+                  />
+                  <label class="custom-control-label" for="payment-2"
+                    >Payoneer</label
+                  >
+                </div>
+                <div class="payment-content" id="payment-2-show"></div>
+              </div>
+              <div class="payment-method">
+                <div class="custom-control custom-radio">
+                  <input
+                    type="radio"
+                    class="custom-control-input"
+                    id="payment-3"
+                    name="payment"
+                  />
+                  <label class="custom-control-label" for="payment-3"
+                    >Check Payment</label
+                  >
+                </div>
+                <div class="payment-content" id="payment-3-show"></div>
+              </div>
+              <div class="payment-method">
+                <div class="custom-control custom-radio">
+                  <input
+                    type="radio"
+                    class="custom-control-input"
+                    id="payment-4"
+                    name="payment"
+                  />
+                  <label class="custom-control-label" for="payment-4"
+                    >Direct Bank Transfer</label
+                  >
+                </div>
+                <div class="payment-content" id="payment-4-show"></div>
+              </div>
+              <div class="payment-method">
+                <div class="custom-control custom-radio">
+                  <input
+                    type="radio"
+                    class="custom-control-input"
+                    id="payment-5"
+                    name="payment"
+                  />
+                  <label class="custom-control-label" for="payment-5"
+                    >Cash on Delivery</label
+                  >
+                </div>
+                <div class="payment-content" id="payment-5-show"></div>
+              </div>
+            </div>
+            <div class="checkout-btn">
+              <button (click)="placeOrder()">Place Order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Checkout End -->

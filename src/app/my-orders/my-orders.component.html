@@ -1,0 +1,43 @@
+<div class="conatiner">
+
+  <table class="table"  >
+    <tr>
+        <th>Order Id</th>
+        <th>date</th>
+        <th>status</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let o of orders">
+        <th>{{o._id}}</th>
+        <th>{{o.date | date}}</th>
+        <th>{{o.status}}</th>
+        <th>
+            <button (click)="show(o.products)">view</button>
+        </th>
+    </tr>
+</table>
+<div class="card" >
+    <div class="card-body">
+      <h5 class="card-title">Order Summary</h5>
+      <ul class="list-group">
+        <li class="list-group-item"
+        *ngFor="let item of orderD">
+        {{item.quantity}} x {{item.product.name}}
+        <div class="float-right">
+          {{item.quantity * item.product.price | currency:"USD":true}}
+        </div>
+        </li>
+        <li class="list-group-item font-weight-bold">
+          Total
+          <div class="float-right">
+        {{totalPrice | currency:"USD":true}}
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+

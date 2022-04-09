@@ -1,0 +1,48 @@
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md">
+                <div class="searchDiv">
+                    <input class="inputSearch" id="myInput"  ngClass="{'active': toggle}" type=" text " placeholder="search ">
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <table class="table text-center myTable bg-white">
+                    <thead>
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">order ID</th>
+                        <th scope="col">Order Status</th>
+                        <th>Status</th>
+                        <!-- <th scope="col">View Product</th> -->
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+  
+                    <tbody>
+                        <tr *ngFor="let order of orders;  let i = index" >
+                          <th scope="row">{{i+1}}</th>
+                          <td>{{order._id}}</td>
+                          <td>{{order.status}}</td>
+  
+                          <td >
+                            <button #a  (click)="change(order._id,a.value)" value="true"  class="btn btn-success mr-1">Accept</button>
+                            <button #d (click)="change(order._id,d.value)" value="false" class="btn btn-danger">rejected</button>
+                        </td>
+                        </tr>
+  
+                      </tbody>
+  
+                  </table>
+            </div>
+  
+  
+        </div>
+    </div>
+  
+  

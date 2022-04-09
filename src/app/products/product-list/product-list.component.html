@@ -1,0 +1,44 @@
+  <div class="row">
+    <div class="col-3">
+      <side-menu [category]="category"></side-menu>
+    </div>
+    
+    <div class="col-9">
+      <div class="container">
+
+      <input
+      #query
+      (keyup)="filter(query.value)"
+      type="text" class="form-control" placeholder="Search...">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let prod of prodListCategory">
+          <div class="card">
+            <a [routerLink]="['/productdetails/', prod._id]">
+              <img [src]="prod.picture" class="card-img-top" alt="..." />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">{{ prod.name }}</h5>
+              <div class="ratting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+              <p class="card-text">{{ prod.price | currency }}</p>
+              <div class="action" *ngIf="prod.quantity != 0; else out">
+                <a class="btn" (click)="addToCart(prod)"
+                ><i class="fa fa-shopping-cart"></i>Add to Cart</a
+                >
+            </div>
+            <ng-template #out>
+                <p>Out Of Stock</p>
+            </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>

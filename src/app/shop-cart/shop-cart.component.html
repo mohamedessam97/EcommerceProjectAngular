@@ -1,0 +1,138 @@
+<!-- Breadcrumb Start -->
+<div class="breadcrumb-wrap">
+  <div class="container-fluid">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Products</a></li>
+      <li class="breadcrumb-item active">Cart</li>
+    </ul>
+  </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Cart Start -->
+<div class="cart-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8">
+        <!-- nothing to show -->
+        <div class="empty" *ngIf="productList.length < 1">
+          <div>
+            <h4>You dont have any items in your cart.</h4>
+            <button class="btn btn-success" routerLink="/products">
+              Start Shoping
+            </button>
+          </div>
+        </div>
+
+        <div class="cart-page-inner" *ngIf="productList.length > 0">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody class="align-middle">
+                <tr *ngFor="let prd of productList">
+                  <td>
+                    {{ prd.product.name }}
+                  </td>
+                  <td>
+                    {{ prd.product.price | currency: "USD":true }}
+                  </td>
+                  <td>
+                    <div class="qty">
+                      <button
+                        class="btn-minus"
+                        (click)="removeFromCart(prd.product)"
+                      >
+                        <i class="fa fa-minus"></i>
+                      </button>
+                      <input type="text" value="{{ prd.quantity }}" />
+                      <button class="btn-plus" (click)="addToCart(prd.product)">
+                        <i class="fa fa-plus"></i>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    {{
+                      prd.product.price * prd.quantity | currency: "USD":true
+                    }}
+                  </td>
+                  <td>
+                    <button>
+                      <i
+                        class="fa fa-trash"
+                        (click)="onDeletProduct(prd.product._id)"
+                      ></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="cart-page-inner" *ngIf="productList.length > 0">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="coupon">
+                <input type="text" placeholder="Coupon Code" />
+                <button>Apply Code</button>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Cart Summary</h4>
+                  <ul class="list-group">
+                    <li
+                      class="list-group-item"
+                      *ngFor="let item of productList"
+                    >
+                      {{ item.quantity }} x {{ item.product.name }}
+                      <div class="float-right">
+                        {{
+                          item.quantity * item.product.price
+                            | currency: "USD":true
+                        }}
+                      </div>
+                    </li>
+                    <li class="list-group-item font-weight-bold">
+                      Total
+                      <div class="float-right">
+                        {{ totalPrice | currency: "USD":true }}
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <button
+                    class="btn btn-success ml-5"
+                    *ngIf="productList.length"
+                    (click)="clearCart()"
+                  >
+                    Clear Cart
+                  </button>
+                  <button
+                    class="btn btn-primary ml-5"
+                    *ngIf="productList.length"
+                    routerLink="/shippingDetails"
+                  >
+                    Checkout
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
