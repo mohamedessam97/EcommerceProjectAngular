@@ -1,4 +1,6 @@
 <!-- <app-header></app-header> -->
+<div class="container">
+
 <div class="row">
   <div class="col-md-6">
     <form #f="ngForm" (ngSubmit)="save(f.value)">
@@ -73,8 +75,8 @@
           #img="ngModel"
           type="text"
           class="form-control"
-          [(ngModel)]="prd.pictures"
-          name="pictures"
+          [(ngModel)]="prd.picture"
+          name="picture"
           required
         />
         <div class="alert alert-danger" *ngIf="img.touched && img.invalid">
@@ -85,8 +87,8 @@
         <label for="categ">Category</label>
         <select
           #cat="ngModel"
-          [(ngModel)]="prd.cateogryId"
-          name="Category"
+          [(ngModel)]="prd.categoryId"
+          name="categoryId"
           id="categ"
           class="form-select"
           required
@@ -100,13 +102,13 @@
           Category is required!
         </div>
       </div>
-      <button class="btn btn-primary" type="submit">Save</button>
-      <button class="btn btn-danger" type="button" (click)="del(prd)">Delete</button>
+      <button class="btn btn-success" type="submit">Save</button>
+      
     </form>
   </div>
   <div class="col-md-6">
     <div class="card" style="width: 18rem" *ngIf="prd.name">
-      <img [src]="prd.img" class="card-img-top" *ngIf="prd.img" />
+      <img [src]="prd.picture" class="card-img-top" *ngIf="prd.picture" />
       <div class="card-body">
         <h5 class="card-title">{{prd.name}}</h5>
         <p class="card-text">
@@ -115,4 +117,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

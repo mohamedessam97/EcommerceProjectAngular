@@ -40,12 +40,12 @@ export class ProductFormComponent implements OnInit {
         const quantity=p.quantity;
         const description=p.description;
         const categoryId=p.categoryId;
-        const pictures=p.pictures;
-    this.prdService.addProduct(this.token, name , price , quantity , description , categoryId, pictures).subscribe(e=>{
+        const picture=p.picture;
+    this.prdService.addProduct(this.token, name , price , quantity , description , categoryId, picture).subscribe(e=>{
       console.log(e);
       
     });
-    // this.router.navigate(['/admin/product'])
+    this.router.navigate(['/admin/products'])
   }
 
   del(prd:any){

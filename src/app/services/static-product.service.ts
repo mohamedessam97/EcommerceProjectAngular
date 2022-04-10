@@ -39,12 +39,12 @@ export class StaticProductService {
     // return this.prdList;
   }
 
-  addProduct(token:any, name :any, price:any , quantity :any, description :any, categoryId:any, pictures:any){
-    return this.http.post("http://localhost:3000/products/add_product",{token, name , price , quantity , description , categoryId, pictures});
+  addProduct(token:any, name :any, price:any , quantity :any, description :any, categoryId:any, picture:any){
+    return this.http.post("http://localhost:3000/products/add_product",{token, name , price , quantity , description , categoryId, picture});
 
   }
-  editProduct(token:any, name :any, price:any , quantity :any, description :any, categoryId:any, pictures:any , productId:any){
-    return this.http.put("http://localhost:3000/products/update_product",{token, name , price , quantity , description , categoryId, pictures , productId});
+  editProduct(token:any, name :any, price:any , quantity :any, description :any, categoryId:any, picture:any , productId:any){
+    return this.http.put("http://localhost:3000/products/update_product",{token, name , price , quantity , description , categoryId, picture , productId});
 
   }
 

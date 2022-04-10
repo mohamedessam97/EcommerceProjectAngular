@@ -12,12 +12,16 @@ export class ProductListComponent implements OnInit {
   productList: any[] = [];
   prodListCategory: any;
   category: number;
+  
+
 
   constructor(
     private staticPrdService: StaticProductService,
     private cartService: CartServiceService,
     private route: ActivatedRoute
   ) {
+ 
+    
     route.queryParamMap.subscribe((params) => {
       this.category = Number(params.get('category'));
       this.prodListCategory = this.category
@@ -30,6 +34,8 @@ export class ProductListComponent implements OnInit {
     this.staticPrdService.getAllProducts().subscribe((data) => {
       this.prodListCategory = data;
       this.productList = this.prodListCategory;
+      console.log(data);
+      
     });
   }
 

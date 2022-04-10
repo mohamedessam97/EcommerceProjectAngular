@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { StaticProductService } from 'src/app/services/static-product.service';
 import { ICateogry } from 'src/app/ViewModels/icateogry';
-import { IProduct } from 'src/app/ViewModels/iproduct';
 
 @Component({
   selector: 'edit',
@@ -31,9 +29,9 @@ export class EditComponent implements OnInit {
     prdService.getProductById(this.currPrdId).subscribe(
       e=>{
         this.prd=e;
+        console.log(this.prd);
       }
     );
-    console.log(this.prd);
 
 
 
@@ -47,12 +45,13 @@ export class EditComponent implements OnInit {
         const quantity=p.quantity;
         const description=p.description;
         const categoryId=p.categoryId;
-        const pictures=p.pictures;
-    this.prdService.editProduct(this.token, name , price , quantity , description , categoryId, pictures , this.currPrdId).subscribe(e=>{
+        const picture=p.picture;
+    this.prdService.editProduct(this.token, name , price , quantity , description , categoryId, picture , this.currPrdId).subscribe(e=>{
       console.log(e);
       
     });
-    // this.router.navigate(['/admin/product'])
+    this.router.navigate(['/admin/products'])
+
   }
 
   del(prd:any){

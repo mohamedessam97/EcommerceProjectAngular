@@ -7,10 +7,12 @@
         <th>status</th>
         <th></th>
     </tr>
-    <tr *ngFor="let o of orders">
+    <tr *ngFor="let o of orders" [ngSwitch]="o.status">
         <th>{{o._id}}</th>
         <th>{{o.date | date}}</th>
-        <th>{{o.status}}</th>
+        <th *ngSwitchCase="'true'">Accepted</th>
+        <th *ngSwitchCase="'false'">Rejected</th>
+        <th *ngSwitchDefault>Pending</th>
         <th>
             <button (click)="show(o.products)">view</button>
         </th>

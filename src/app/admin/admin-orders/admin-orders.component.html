@@ -25,14 +25,16 @@
                     </thead>
   
                     <tbody>
-                        <tr *ngFor="let order of orders;  let i = index" >
+                        <tr *ngFor="let order of orders;  let i = index" [ngSwitch]="order.status">
                           <th scope="row">{{i+1}}</th>
-                          <td>{{order._id}}</td>
-                          <td>{{order.status}}</td>
+                          <td >{{order._id}}</td>
+                          <td *ngSwitchCase="'true'">Accepted</td>
+                          <td *ngSwitchCase="'false'">Rejected</td>
+                          <td *ngSwitchDefault>Pending</td>
   
                           <td >
                             <button #a  (click)="change(order._id,a.value)" value="true"  class="btn btn-success mr-1">Accept</button>
-                            <button #d (click)="change(order._id,d.value)" value="false" class="btn btn-danger">rejected</button>
+                            <button #d (click)="change(order._id,d.value)" value="false" class="btn btn-danger">Reject</button>
                         </td>
                         </tr>
   

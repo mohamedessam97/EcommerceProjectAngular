@@ -42,6 +42,13 @@ token:any;
   del(_id:any ){
     this.prdService.deleteProduct(_id,this.token).subscribe(e=>{
       console.log(e);
+      this.prdService.getAllProducts().subscribe(
+        data=>{
+          this.filteredProducts=this.products=data;
+      console.log(this.filteredProducts);
+  
+        }
+      );
       
     })
   }

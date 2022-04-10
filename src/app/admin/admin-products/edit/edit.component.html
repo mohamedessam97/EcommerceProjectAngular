@@ -1,4 +1,5 @@
 <!-- <app-header></app-header> -->
+<div class="container">
 <div class="row">
     <div class="col-md-6">
       <form #f="ngForm" (ngSubmit)="save(f.value)">
@@ -86,7 +87,7 @@
           <select
             #cat="ngModel"
             [(ngModel)]="prd.categoryId"
-            name="Category"
+            name="categoryId"
             id="categ"
             class="form-select"
             required
@@ -100,7 +101,7 @@
             Category is required!
           </div>
         </div>
-        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn btn-success" type="submit">Save</button>
       </form>
     </div>
     <div class="col-md-6">
@@ -115,4 +116,4 @@
       </div>
     </div>
   </div>
-  
+</div>
