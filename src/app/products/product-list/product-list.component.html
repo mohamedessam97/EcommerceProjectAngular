@@ -1,5 +1,6 @@
   <div class="row" *ngIf="prodListCategory.length">
     <div class="col-3">
+
       <side-menu [category]="category"></side-menu>
     </div>
     
@@ -18,13 +19,13 @@
             </a>
             <div class="card-body">
               <h5 class="card-title">{{ prod.name }}</h5>
-              <div class="ratting">
+              <!-- <div class="ratting">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                    </div>
+                    </div> -->
               <p class="card-text">{{ prod.price | currency }}</p>
               <div class="action" *ngIf="prod.quantity != 0; else out">
                 <a class="btn" (click)="addToCart(prod)"
