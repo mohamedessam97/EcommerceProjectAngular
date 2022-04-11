@@ -19,7 +19,7 @@
         <div class="empty" *ngIf="productList.length < 1">
           <div>
             <h4>You dont have any items in your cart.</h4>
-            <button class="btn btn-success" routerLink="/products">
+            <button class="btn btn-success buttn" routerLink="/products">
               Start Shoping
             </button>
           </div>
@@ -114,14 +114,14 @@
                 </div>
                 <div>
                   <button
-                    class="btn btn-success ml-5"
+                    class="btn btn-success ml-5 buttn"
                     *ngIf="productList.length"
                     (click)="clearCart()"
                   >
                     Clear Cart
                   </button>
                   <button
-                    class="btn btn-primary ml-5"
+                    class="btn btn-primary ml-5 buttn"
                     *ngIf="productList.length"
                     routerLink="/shippingDetails"
                   >
