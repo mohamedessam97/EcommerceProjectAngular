@@ -15,6 +15,7 @@ import { ProductDetatilsComponent } from './products/product-detatils/product-de
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ShippingDetailsComponent } from './shipping-details/shipping-details.component';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
   // {
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'productdetails/:pid', component: ProductDetatilsComponent },
   { path: 'order-success', component: OrderSuccessComponent },
   { path: 'my/orders', component: MyOrdersComponent },
+  { path: 'wishlist', component:WishlistComponent  },
 
   { path: 'admin/products/new', component: ProductFormComponent },
   // { path: 'admin/products/edit', component: EditComponent },

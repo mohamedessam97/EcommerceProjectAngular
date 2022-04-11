@@ -12,6 +12,8 @@ export class ProductListComponent implements OnInit {
   productList: any[] = [];
   prodListCategory: any;
   category: number;
+  productData:any=[];
+  favorite: any = [];
   
 
 
@@ -54,4 +56,18 @@ export class ProductListComponent implements OnInit {
   removeFromCart(prd: any) {
     this.cartService.removeFromCart(prd);
   }
+
+  // addToFavourite(index:number)
+  // {
+  //   if (localStorage.getItem("favorite") !== null) {
+  //     this.favorite = JSON.parse(localStorage.getItem('favorite')!)
+  //     this.favorite.push(this.productData[index])
+  //     localStorage.setItem('favorite', JSON.stringify(this.favorite))
+  //   } else {
+  //     this.favorite.push(this.productData[index])
+  //     localStorage.setItem('favorite', JSON.stringify(this.favorite))
+  //   }
+
+  //   console.log("added sucessfully");
+  // }
 }
