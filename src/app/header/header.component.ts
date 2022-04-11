@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 import { CartServiceService } from '../services/cart-service.service';
 
 @Component({
@@ -13,13 +14,17 @@ export class HeaderComponent implements OnInit {
   isAdmin: string | null;
   shoppingCartItemCount: number = 0;
   count: number;
-  constructor(private CartService: CartServiceService) {
+  constructor(private CartService: CartServiceService ,
+    private auth:AuthService) {
     this.userName = localStorage.getItem('fname');
     this.isAdmin = localStorage.getItem('isAdmin');
   }
 
   ngOnInit(): void {
     this.user = localStorage.getItem('token');
+    // this.auth.isLogin.subscribe(data=>{
+    //   this.user = data;
+    // });
     this.CartService.shoppingCartItemCount.subscribe((count) => {
       this.shoppingCartItemCount = 0;
       for (let i = 0; i < count.length; i++) {

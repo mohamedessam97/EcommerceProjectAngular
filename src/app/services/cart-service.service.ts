@@ -47,7 +47,6 @@ export class CartServiceService implements OnInit {
             return el.product._id!==prd._id;
           })
 
-          console.log(this.items[i].quantity);
         }
       }
     }

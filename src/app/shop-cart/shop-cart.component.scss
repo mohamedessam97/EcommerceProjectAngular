@@ -4,3 +4,17 @@
     border-radius:100% ;
     background-size: cover;
 }
+
+.btn{
+    color: #FF6F61;
+    background: #ffffff;
+    border: 1px solid #FF6F61;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+    color: #ffffff;
+    background: #FF6F61;
+    box-shadow: none;
+} 

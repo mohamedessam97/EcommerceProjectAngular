@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
 interface RegisterResponseData{
   status:string,
-  data:string
+  data:string,
+  
 }
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  token:any;
+  // isLogin: BehaviorSubject<any>;
     loggedIn=false;
-    constructor(private http: HttpClient ,private route:ActivatedRoute) { }
+    constructor(private http: HttpClient ,private route:ActivatedRoute) { 
+      // this.isLogin.next(this.token)
+    }
     
 
 

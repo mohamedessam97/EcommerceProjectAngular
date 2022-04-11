@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   error: string;
   user: any;
+  isLogin: BehaviorSubject<any>;
+
 
   constructor(
     private authService: AuthService,
@@ -33,6 +36,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('isAdmin', this.user.data.isAdmin);
         localStorage.setItem('fname', this.user.data.firstName);
         localStorage.setItem('lname', this.user.data.lastName);
+        this.authService.token=this.user.data.token;
       },
       (error) => {
         this.error = error;
