@@ -5,16 +5,20 @@
     background-size: cover;
 }
 
-.btn{
-    color: #FF6F61;
-    background: #ffffff;
-    border: 1px solid #FF6F61;
+a:link
+{
+    text-decoration: none;
+   
 }
 
-.btn:hover,
-.btn:active,
-.btn:focus {
-    color: #ffffff;
-    background: #FF6F61;
-    box-shadow: none;
-} 
+a{
+    color: #FF6F61;
+}
+
+.buttn
+{
+    margin-bottom: 20px;
+    background-color: #FF6F61;
+    color:white;
+    border: none;
+}

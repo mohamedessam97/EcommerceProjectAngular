@@ -1,0 +1,46 @@
+ body
+ {
+   background-color: #dddddd; 
+ }
+ 
+ .product-detail
+ {
+    // border: 4px solid #FF6F61;
+    border-radius: 4%;
+    width: 50%;
+    margin: 20px;
+    // margin-left: 50px;
+   
+ }
+
+ .content
+ {
+     margin-left: 108px;
+ }
+ 
+ a:link
+{
+    text-decoration: none;
+   
+}
+
+a{
+    color: #FF6F61;
+}
+
+
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+    color: #ffffff;
+    background: #FF6F61;
+    box-shadow: none;
+}   
+
+.btn
+{
+    color: #FF6F61;
+    background: #ffffff;
+    border: 1px solid #FF6F61;
+}

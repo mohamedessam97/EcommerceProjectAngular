@@ -9,3 +9,29 @@
     border: 1px solid #ffffff;
 }
 
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+    color: #ffffff;
+    background: #FF6F61;
+    box-shadow: none;
+}   
+
+.btn
+{
+    color: #FF6F61;
+    background: #ffffff;
+    border: 1px solid #FF6F61;
+}
+
+.buttn
+{
+    background: #FF6F61;
+    color:#ffffff ;
+}
+
+.buttn:hover{
+    color: #FF6F61;
+    background: #ffffff;
+}

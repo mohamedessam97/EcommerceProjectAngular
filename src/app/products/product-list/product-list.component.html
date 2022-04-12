@@ -1,15 +1,13 @@
-  <div class="row" *ngIf="prodListCategory.length">
-    <div class="col-3">
-      <side-menu [category]="category"></side-menu>
-    </div>
-    
-    <div class="col-9">
-      <div class="container">
+<div class="row" *ngIf="prodListCategory.length">
+  <div class="col-3">
 
-      <input
-      #query
-      (keyup)="filter(query.value)"
-      type="text" class="form-control" placeholder="Search...">
+    <side-menu [category]="category"></side-menu>
+  </div>
+
+  <div class="col-9">
+    <div class="container">
+
+      <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search...">
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col" *ngFor="let prod of prodListCategory">
           <div class="card">
@@ -18,22 +16,21 @@
             </a>
             <div class="card-body">
               <h5 class="card-title">{{ prod.name }}</h5>
-              <div class="ratting">
+              <!-- <div class="ratting">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                    </div>
+                    </div> -->
               <p class="card-text">{{ prod.price | currency }}</p>
               <div class="action" *ngIf="prod.quantity != 0; else out">
-                <a class="btn" (click)="addToCart(prod)"
-                ><i class="fa fa-shopping-cart"></i>Add to Cart</a
-                >
-            </div>
-            <ng-template #out>
+                <a class="btn" (click)="addToCart(prod)"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
+                <!-- <a class="btn" (click)="addToFavourite(prod)"><i class="fa fa-heart"></i> Add to wishlist</a> -->
+              </div>
+              <ng-template #out>
                 <p>Out Of Stock</p>
-            </ng-template>
+              </ng-template>
             </div>
           </div>
         </div>
@@ -41,7 +38,7 @@
     </div>
   </div>
 
-  </div>
-  <div *ngIf="!prodListCategory.length">
-    <app-loading-spinner></app-loading-spinner>
-  </div>
+</div>
+<div *ngIf="!prodListCategory.length">
+  <app-loading-spinner></app-loading-spinner>
+</div>
