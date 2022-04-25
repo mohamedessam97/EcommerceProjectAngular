@@ -33,7 +33,7 @@ import { CategoryComponent } from './category/category.component';
 import { CallToActionComponent } from './call-to-action/call-to-action.component';
 import { ReviewComponent } from './review/review.component';
 import { EditComponent } from './admin/admin-products/edit/edit.component';
-import { WishlistComponent } from './wishlist/wishlist.component'
+// import { WishlistComponent } from './wishlist/wishlist.component'
 // import { CartServiceComponent } from './services/cart-service/cart-service.component';
 
 @NgModule({
@@ -64,7 +64,7 @@ import { WishlistComponent } from './wishlist/wishlist.component'
     CallToActionComponent,
     ReviewComponent,
     EditComponent,
-    WishlistComponent,
+    // WishlistComponent,
 
     
   ],
